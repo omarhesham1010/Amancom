@@ -142,7 +142,7 @@ const Main = styled.main`
   margin-left: 0;
   transition: margin-left 0.3s cubic-bezier(.4,0,.2,1);
   @media (min-width: 901px) {
-    margin-left: ${props => (props.sidebarOpen ? `${SIDEBAR_WIDTH}px` : '0')};
+    margin-left: ${props => (props.$sidebarOpen ? `${SIDEBAR_WIDTH}px` : '0')};
   }
 `;
 
@@ -235,7 +235,7 @@ function MainLayout() {
           ))}
         </NavList>
       </Sidebar>
-      <Main sidebarOpen={sidebarOpen} style={{ marginTop: HEADER_HEIGHT, padding: "2rem", background: "#f7f7f7", minHeight: "100vh" }}>
+      <Main $sidebarOpen={sidebarOpen} style={{ marginTop: HEADER_HEIGHT, padding: "2rem", background: "#f7f7f7", minHeight: "100vh" }}>
         <div style={{ marginTop: 0 }}>
           <Routes>
             <Route path="/dashboard" element={<Dashboard />} />
