@@ -9,7 +9,7 @@ exports.login = async (req, res) => {
     const user = users[0];
     if (!user) return res.status(401).json({ error: 'Invalid credentials' });
     const valid = await bcrypt.compare(password, user.password);
-    if (!valid) return res.status(401).json({ error: ','+user.password });
+    if (!valid) return res.status(401).json({ error: 'Invalid credentials' });
     // Optionally fetch access roles
     const [roles] = await pool.query('SELECT * FROM Access_Roles WHERE user_id = ? AND is_deleted = 0', [user.id]);
     user.access_roles = roles[0] || null;
